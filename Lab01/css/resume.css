@@ -1,0 +1,57 @@
+body{
+    font: "Verdana", "Tahoma", "sans-serif";
+    color: #e4e4e4;
+    background-color: #800000;
+    background-image: url(../image/cse326bg.png);
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+h1,h2{
+    color: #9197ff;
+}
+h1{
+    font-size: 3em;
+    text-shadow: 2px 2px black;
+}
+a{
+    color: #ff8484;
+    text-decoration: none;
+}
+a:hover{
+    color: #d678ff;
+    text-decoration: underline;
+}
+blockquote{
+    font-size: 80%;
+}
+dt{
+    font-weight: bold;
+}
+p:first-letter{
+    font-weight: bold;
+    font-size: 150%;
+}
+strong{
+    color: #3be691;
+}
+ul,ol,dl{
+    text-align: left
+}
+table, tr, td, th{
+    border: dashed;
+    border-collapse: collapse;
+}
+tr:nth-child(2){
+    background-color: blue;
+}
+ol{
+    list-style: upper-roman;
+}
+img{
+    outline-style: dotted;
+    outline-color: #797979;
+}
+a img{
+    outline-style: none;
+}
