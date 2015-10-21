@@ -143,15 +143,20 @@
             $newWord = $_GET['newWord'];
             $meaning = $_GET['meaning'];
             $resmessage = '';
-            if((isset($newWord) || isset($meaning))&& $newWord != '' && $meaning!='')
+            print $newWord.'$';
+            print $meaning."&";
+            if((isset($newWord) || isset($meaning))&& ($newWord != ' ') && ($meaning!=' '))
             {
+                echo "$$";
                 $ressmessage = "Input word or meaning of the word doesn't exist.";
             }
             else{
-                file_put_contents ($filename, $newWord."\t".$meaning)
+                echo '##';
+                file_put_contents ($filename, $newWord."\t".$meaning, FILE_APPEND);
+                $ressmessage = "Adding a word is success!";
             }
         ?>
-        <p>Input word or meaning of the word doesn't exist.</p>
+        <p><?=$ressmessage?></p>
     </div>
 </div>
 <div id="footer">
