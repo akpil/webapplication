@@ -1,0 +1,57 @@
+ex4
+select name from student s join department d on s.dept_no = d.dept_no where dept_name = 'Computer Science';
+select student_id, year, major from student;
+select * from student where year = 3;
+select * from student where year = 1 or year = 2;
+select * from student s join department d on s.dept_no = d.dept_no where dept_name = 'Business Administration';
+
+
+ex5
+select * from student where student_id like '2007%';
+select * from student order by student_id;
+select * from student group by year having avg(year) > 3;
+select * from student where student_id like '2007%' and major = 'Business Administration' limit 2;
+
+ex6
+select name, language from countries c join languages l on c.code = l.country_code where c.independence_year = 1948;
+
+select name 
+from countries c 
+join languages l on c.code = l.country_code 
+join languages l1 on c.code = l1.country_code 
+where l.official = 'T' and l.language = 'English' and l1.language = 'French';
+
+select language ,count(c.name)
+from countries c 
+join languages l on c.code = l.country_code 
+where c.life_expectancy > 75 
+group by l.language 
+order by count(c.name) desc limit 5;
+
+select ci.name 
+from countries c 
+join languages l1 on c.code = l1.country_code 
+join languages l2 on c.code = l2.country_code 
+join cities ci on c.capital = ci.id 
+where l1.language = 'English' and l2.language = 'Korean';
+
+select ci.name 
+from countries c 
+join languages l on c.code = l.country_code 
+join cities ci on c.capital = ci.id 
+where l.official = 'T' and (l.percentage>20.0 and l.percentage<50.0);
+
+select sum(c.surface_area) 
+from countries c 
+join 
+(select name, avg(population) p 
+ from countries 
+  group by code desc limit 5) res on c.name = res.name 
+ order by p desc limit 5;
+
+
+ex7
+select r.role from movies m join roles r on m.id = r.movie_id join actors a on r.actor_id = a.id where m.name = 'pi';
+select a.first_name, a.last_name from actors a join roles r on r.actor_id = a.id group by a.id order by sum(r.movie_id) desc limit 7;
+select d.first_name, d.last_name from directors d join movies_directors md on d.id = md.director_id join movies m on md.movie_id = m.id group by d.id order by avg(m.rank) desc limit 3;
+select d.first_name, d.last_name from directors d join movies_directors md on d.id = md.director_id join movies m on md.movie_id = m.id join movies_genres mg on m.id = mg.movie_id where mg.genre = 'Thriller' group by d.id order by count(m.id) desc limit 1;

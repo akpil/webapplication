@@ -1,0 +1,24 @@
+create table student
+(
+    student_id int,
+    name varchar(10),
+    year tinyint default 1,
+    dept_no int,
+    major varchar(20) not null,
+    primary key(student_id)
+);
+
+create table department
+(
+	dept_no int auto_increment,
+	dept_name varchar(20) unique,
+	office varchar(20),
+	office_tel varchar(13) not null,
+	primary key(dept_no)
+);
+
+alter table student modify major varchar(40);
+alter table student add gender varchar(10);
+
+alter table department modify dept_name varchar(40);
+alter table department modify office varchar(30);

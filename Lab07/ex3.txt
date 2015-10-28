@@ -1,0 +1,7 @@
+update department set dept_name = 'Electronic and Electrical Engineering' where dept_name = 'Electronic engineering';
+
+insert into department (dept_name, office, office_tel) values  ('Education', 'Education building', '02-3290-2347');
+
+delete from student where name = 'Michelle';
+
+delete from student where name = 'Fearne';
